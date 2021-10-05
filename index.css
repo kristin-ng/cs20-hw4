@@ -1,0 +1,18 @@
+button {
+  color: #00afb9;
+  background-color: #fdfcdc;
+  border: none;
+  font-size: 30px;
+  position: absolute;
+  margin-left: 35%;
+}
+body {
+  background-color: #fdfcdc;
+}
+h1 {
+  background-color: #fed9b7;
+  text-align: center;
+}
+table {
+  font-size: 20px;
+}

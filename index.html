@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Joe's Hot Dog Stand</title>
+    <script language="JavaScript" type="text/javascript">
+      function get_order() {
+        // Get quantity of items
+        var hotdogs, fries, drinks;
+
+        hotdogs = prompt("How many hotdogs do you want?", "3");
+        fries = prompt("How many fries do you want?", "5");
+        drinks = prompt("How many drinks do you want?", "10");
+
+        document.getElementById("hotdog_num").innerHTML = hotdogs;
+        document.getElementById("fries_num").innerHTML = fries;
+        document.getElementById("drinks_num").innerHTML = drinks;
+
+        // Subtotal
+        document.getElementById("hotdog_price").innerHTML =
+          "$" + (hotdogs * 3.75).toFixed(2);
+        document.getElementById("fries_price").innerHTML =
+          "$" + (fries * 2.0).toFixed(2);
+        document.getElementById("drinks_price").innerHTML =
+          "$" + (drinks * 1.5).toFixed(2);
+
+        var subtotal = hotdogs * 3.25 + fries * 2.0 + drinks * 1.5;
+        document.getElementById("subtotal").innerHTML =
+          "$" + subtotal.toFixed(2);
+
+        // Joe's Special: 10% discount if order is >=$20 (pre tax)
+        var discount = 0;
+        if (subtotal >= 20) {
+          discount = 0.1 * subtotal;
+          document.getElementById("discount").innerHTML =
+            "- $" + discount.toFixed(2);
+        }
+
+        subtotal = subtotal - discount;
+
+        // Tax (6.25%)
+        document.getElementById("tax").innerHTML =
+          "+ $" + (subtotal * 0.065).toFixed(2);
+
+        // Total
+        document.getElementById("total").innerHTML =
+          "$" + (subtotal * 1.065).toFixed(2);
+      }
+    </script>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <h1>Welcome to Joe's Table!</h1>
+    <button onclick="get_order()">Click to Order !</button>
+    <br />
+    <table>
+      <tr>
+        <td>
+          <div><b>RECEIPT</b></div>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><div align="left">Item</div></td>
+        <td><div align="right">Quantity</div></td>
+        <td><div align="right">Value</div></td>
+      </tr>
+      <tr>
+        <td><div align="left">Hot Dog</div></td>
+        <td><div id="hotdog_num" align="right">0</div></td>
+        <td>
+          <div id="hotdog_price" align="right">$0.00</div>
+        </td>
+      </tr>
+      <tr style>
+        <td><div align="left">French Fries</div></td>
+        <td><div id="fries_num" align="right">0</div></td>
+        <td>
+          <div id="fries_price" align="right">$0.00</div>
+        </td>
+      </tr>
+      <tr style>
+        <td><div align="left">Drink</div></td>
+        <td><div id="drinks_num" align="right">0</div></td>
+        <td>
+          <div id="drinks_price" align="right">$0.00</div>
+        </td>
+      </tr>
+      <tr></tr>
+      <tr>
+        <td><div align="left">SUBTOTAL</div></td>
+        <td></td>
+        <td>
+          <div id="subtotal" align="right">$0.00</div>
+        </td>
+      </tr>
+      <tr>
+        <td><div align="left">DISCOUNT</div></td>
+        <td></td>
+        <td><div id="discount" align="right">$0.00</div></td>
+      </tr>
+      <tr>
+        <td><div align="left">TAX</div></td>
+        <td></td>
+        <td><div id="tax" align="right">$0.00</div></td>
+      </tr>
+      <tr>
+        <td>
+          <div align="left"><b>TOTAL</b></div>
+        </td>
+        <td></td>
+        <td align="right">
+          <div id="total" align="right" style="font-weight: bold">$0.00</div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
